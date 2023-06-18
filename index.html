@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map and Sets</title>
+  </head>
+  <body>
+    <h2>Q-1</h2>
+    <pre>
+"Problem:
+        You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+        Your task is to remove all the duplicate occurrences of characters in the string.
+        
+        Input:
+        abcadeecfb
+        
+        Output:
+        abcdef"</pre
+    >
+
+    <pre>
+var a= "abcadeecfb"
+
+            var b= new Set(a)
+            b=[...b]
+            let c= b.join('')
+            console.log(c)</pre
+    >
+
+    <p>
+      In this code, the string a is converted into a set b using new Set(a). A
+      set is a collection of unique elements, so it eliminates duplicate
+      characters from the string. Next, we convert the set b back into an array
+      using the spread operator [...b]. This allows us to use array methods on
+      the set. Finally, we join the array b into a string c using the join('')
+      method. The join('') function concatenates the elements of the array into
+      a string, with no separator in between.
+    </p>
+
+    <h2>Q-2</h2>
+    <pre>
+"Problem:
+                You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+                
+                Input:
+                abcadeecfb
+                
+                Output:
+                a=2
+                b=2
+                c=2
+                d=1
+                e=2
+                f=1"</pre
+    >
+    <pre>
+Code:
+                    function countAlphabets(str) {
+                        var alphabetMap = new Map();
+                        var charArray = str.split('');
+                        
+                       
+                        charArray.map(function(char) {
+                        
+                          if (/[a-zA-Z]/.test(char)) {
+                            
+                            if (alphabetMap.has(char)) {
+                              alphabetMap.set(char, alphabetMap.get(char) + 1);
+                            }
+                           
+                            else {
+                              alphabetMap.set(char, 1);
+                            }
+                          }
+                        });
+                        
+                        
+                        alphabetMap.forEach(function(value, key) {
+                          console.log(key + '=' + value);
+                        });
+                      }
+                      
+                      var str = 'abcadeecfb';
+                      countAlphabets(str);
+                </pre
+    >
+    <p>
+      In this approach, we first convert the string into an array of characters
+      using split(''). Then, we use the map() function to iterate through each
+      character in the array. Inside the map() function, we perform the same
+      logic as before. We check if the character is an alphabet using the
+      regular expression, update the count in the map accordingly, and
+      initialize the count if the character is not in the map. Finally, we use
+      the forEach() method to iterate through the map and print the count of
+      each alphabet in the desired format.
+    </p>
+    <script src="./script.js"></script>
+  </body>
+</html>
